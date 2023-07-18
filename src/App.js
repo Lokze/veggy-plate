@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import Header from './components/header';
-import Search from './components/search';
+import Recipes from './components/recipes';
 import { Component } from 'react';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
    
     <div className="App">
       <Header/>
-      <Search/>
+      <Recipes/>
     </div>
   );
 }
