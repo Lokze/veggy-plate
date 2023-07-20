@@ -4,20 +4,19 @@ import { RecipesContext } from './recipesContext'
 const Cards = () => {
     const {recipes} = useContext(RecipesContext);
 
-    console.log('Recipes data in Cards.js:', recipes);
+    console.log(recipes);
 
   return (
     <div>
-    <h2>Recipes in Another Component</h2>
-    {recipes ? (
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>{recipe.title}</li>
-        ))}
-      </ul>
-    ) : (
-      <p>Waiting...</p>
-    )}
+    <ul id='cards' className='card-container'>
+      {recipes.map((recipe) => (
+        <li className='card' key={recipe.id}>
+          <p><span>{recipe.title}</span></p>
+          <img src={recipe.image} alt={recipe.title} />
+          <a href="#" className="green-button">View Recipe</a>
+        </li>
+      ))}
+    </ul>
   </div>
   )
 }
