@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { RecipesContext } from './recipesContext'
+import { Link } from 'react-router-dom';
+import FullRecipe from './FullRecipe';
 
 const Cards = () => {
     const {recipes} = useContext(RecipesContext);
@@ -13,7 +15,9 @@ const Cards = () => {
         <li className='card' key={recipe.id}>
           <p><span>{recipe.title}</span></p>
           <img src={recipe.image} alt={recipe.title} />
-          <a href="#" className="green-button">View Recipe</a>
+          <Link to="./FullRecipe.js">
+          <a  className="green-button">View Recipe</a>
+          </Link>
         </li>
       ))}
     </ul>
