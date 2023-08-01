@@ -39,24 +39,6 @@ import FullRecipe from './FullRecipe';
 
 const Cards = () => {
     const {recipes} = useContext(RecipesContext);
-<<<<<<< HEAD
-    console.log('Recipes data in Cards.js:', recipes);
-    console.log(recipes);
-
-  return (
-    <div>
-    <ul id='cards' className='card-container'>
-      {recipes.map((recipe) => (
-        <li className='card' key={recipe.id}>
-          <p><span>{recipe.title}</span></p>
-          <img src={recipe.image} alt={recipe.title} />
-          <Link to="/full-recipe">
-          <a  className="green-button">View Recipe</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-=======
 
     console.log('Recipes data in Cards.js:', recipes);
 
@@ -72,7 +54,6 @@ const Cards = () => {
     ) : (
       <p>Waiting...</p>
     )}
->>>>>>> parent of b47d6db (completed search page)
   </div>
   )
 }
