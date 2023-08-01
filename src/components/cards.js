@@ -39,6 +39,7 @@ import FullRecipe from './FullRecipe';
 
 const Cards = () => {
     const {recipes} = useContext(RecipesContext);
+<<<<<<< HEAD
     console.log('Recipes data in Cards.js:', recipes);
     console.log(recipes);
 
@@ -55,6 +56,23 @@ const Cards = () => {
         </li>
       ))}
     </ul>
+=======
+
+    console.log('Recipes data in Cards.js:', recipes);
+
+  return (
+    <div>
+    <h2>Recipes in Another Component</h2>
+    {recipes ? (
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id}>{recipe.title}</li>
+        ))}
+      </ul>
+    ) : (
+      <p>Waiting...</p>
+    )}
+>>>>>>> parent of b47d6db (completed search page)
   </div>
   )
 }
