@@ -1,51 +1,44 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { RecipesContext } from './recipesContext';
 
 const Recipes = () => {
-  const {recipes ,setRecipes } = useContext(RecipesContext);
-  
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=fab7982aaa8b44e3809eb0f85c74f923&query=vegetarian&diet=vegetarian`
-        );
-        setRecipes(response.data.results);
-      } catch (error) {
-        console.error('Error fetching recipes:', error);
-      }
-    };
+  const [query, setQuery] = useState(''); // State to store the search query
+  const { setRecipes } = useContext(RecipesContext);
 
-    const handleSubmit = async (event) => {
-      event.preventDefault(); // Prevent form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent form submission
 
-      // Fetch recipes
-      await fetchRecipes();
-    };
-
-    const submitButton = document.getElementById('submit');
-    submitButton.addEventListener('click', handleSubmit);
-
-    return () => {
-      submitButton.removeEventListener('click', handleSubmit);
-    };
-  }, [setRecipes]);
-
+    try {
+      const response = await axios.get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=fab7982aaa8b44e3809eb0f85c74f923&query=${query}&diet=vegetarian`
+      );
+      setRecipes(response.data.results);
+    } catch (error) {
+      console.error('Error fetching recipes:', error);
+    }
+  };
 
   return (
-   <div>
-      <form>
+    <div>
+      <form onSubmit={handleSubmit}>
         <h3>Search your vegetarian plate</h3>
-        <input type="text" id="query" placeholder="Search" />
-        <button id="submit">Submit</button>
+        {/* Use value and onChange to update the query state */}
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search"
+        />
+        <button type="submit" id="submit">
+          Submit
+        </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-
-export default Recipes
+export default Recipes;
 
 /*fab7982aaa8b44e3809eb0f85c74f923*/
 

@@ -8,9 +8,6 @@ const Cards = () => {
   const { recipes } = useContext(RecipesContext);
   console.log('Recipes data in Cards.js:', recipes);
 
-  if (!recipes || recipes.length === 0) {
-    return <div>No recipes found.</div>;
-  }
 
   return (
     <div>
