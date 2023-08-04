@@ -3,16 +3,13 @@ import axios from 'axios';
 import { RecipesContext } from './recipesContext';
 
 const Recipes = () => {
-
-  const { recipes, setRecipes } = useContext(RecipesContext);
+  const {recipes ,setRecipes } = useContext(RecipesContext);
   
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=fab7982aaa8b44e3809eb0f85c74f923&query=${document.getElementById(
-            'query'
-          ).value}&diet=vegetarian`
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=fab7982aaa8b44e3809eb0f85c74f923&query=vegetarian&diet=vegetarian`
         );
         setRecipes(response.data.results);
       } catch (error) {
@@ -20,19 +17,24 @@ const Recipes = () => {
       }
     };
 
+    const handleSubmit = async (event) => {
+      event.preventDefault(); // Prevent form submission
+
+      // Fetch recipes
+      await fetchRecipes();
+    };
+
     const submitButton = document.getElementById('submit');
-    submitButton.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default form submission behavior
-      fetchRecipes();
-    });
+    submitButton.addEventListener('click', handleSubmit);
 
     return () => {
-      submitButton.removeEventListener('click', fetchRecipes);
+      submitButton.removeEventListener('click', handleSubmit);
     };
   }, [setRecipes]);
 
+
   return (
-    <div>
+   <div>
       <form>
         <h3>Search your vegetarian plate</h3>
         <input type="text" id="query" placeholder="Search" />
