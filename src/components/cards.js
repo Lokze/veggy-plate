@@ -3,10 +3,7 @@ import { RecipesContext } from './recipesContext';
 import { Link } from 'react-router-dom';
 
 const Cards = () => {
-  console.log('Cards component is rendered.');
-  
   const { recipes } = useContext(RecipesContext);
-  console.log('Recipes data in Cards.js:', recipes);
 
 
   return (

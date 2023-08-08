@@ -6,7 +6,8 @@ const Header = () => {
   return (
     <header>
       <Link to={`/`}>
-      <h1 ><a id='home' href='/'>Veggy-Plate</a></h1>
+     <h1>Veggy-Plate</h1>
+     <p>(click here to go back at home)</p>
       </Link>
     </header>
     

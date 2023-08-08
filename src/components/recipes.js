@@ -20,10 +20,9 @@ const Recipes = () => {
   };
 
   return (
-    <div>
+    <div className="recipes-container">
       <form onSubmit={handleSubmit}>
         <h3>Search your vegetarian plate</h3>
-        {/* Use value and onChange to update the query state */}
         <input
           type="text"
           value={query}
