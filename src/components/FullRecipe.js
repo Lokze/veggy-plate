@@ -21,10 +21,10 @@ const FullRecipe = () => {
   const [recipeDetails, setRecipeDetails] = useState(null);
 
   useEffect(() => {
-    // Find the selected recipe details based on the id
+   
     const selectedRecipe = recipes.find((recipe) => recipe.id === parseInt(id));
 
-    // Fetch the full recipe details using the id from the Spoonacular API (or any other source)
+    
     const fetchFullRecipe = async () => {
       try {
         const response = await axios.get(
@@ -36,7 +36,7 @@ const FullRecipe = () => {
       }
     };
 
-    // Fetch the full recipe details only if the selected recipe is found
+    
     if (selectedRecipe) {
       fetchFullRecipe();
     }
@@ -59,7 +59,7 @@ const FullRecipe = () => {
   return (
     
   <div className="Full">
-    {/* BLOCK 1*/}
+
      <div className="recipe-container">
     <div className="recipe-image">
       <img src={recipeDetails.image} alt={recipeDetails.title} />
@@ -76,13 +76,13 @@ const FullRecipe = () => {
     </div>
   </div>
 
-      {/* Block 2 */}
+    
       <div className="recipe-description">
       <h3>Description:</h3>
       <p>{cleanDescription}</p>
     </div>
 
-     {/*Block 3*/}
+  
     <div className="ingredients-instructions-container">
   <div className="ingredients-container">
     <h3>Ingredients:</h3>
