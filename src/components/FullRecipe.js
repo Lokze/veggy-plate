@@ -3,18 +3,6 @@ import { useParams } from 'react-router-dom';
 import { RecipesContext } from './recipesContext';
 import axios from 'axios';
 
-const getCookingTime = (analyzedInstructions) => {
-  let cookingTime = 0;
-
-  analyzedInstructions.forEach((instruction) => {
-    instruction.steps.forEach((step) => {
-      cookingTime += step.duration || 0;
-    });
-  });
-
-  return cookingTime;
-};
-
 const FullRecipe = () => {
   const { recipes } = useContext(RecipesContext);
   const { id } = useParams();
@@ -69,7 +57,6 @@ const FullRecipe = () => {
       <div className="recipe-info">
         <p>Difficulty: {recipeDetails.difficulty}</p>
         <p>Prep Time: {recipeDetails.readyInMinutes} minutes</p>
-        <p>Cooking Time: {recipeDetails.cookingMinutes} minutes</p>
         <p>Servings: {recipeDetails.servings}</p>
         <p>Price: {recipeDetails.pricePerServing} USD</p>
       </div>
