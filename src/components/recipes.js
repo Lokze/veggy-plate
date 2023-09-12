@@ -38,11 +38,3 @@ const Recipes = () => {
 };
 
 export default Recipes;
-
-/*fab7982aaa8b44e3809eb0f85c74f923*/
-
-/*<ul>
-{recipes.map((recipe) => (
-  <li key={recipe.id}>{recipe.title}</li>
-))}
-</ul>*/
