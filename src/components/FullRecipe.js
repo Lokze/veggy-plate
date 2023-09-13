@@ -17,7 +17,7 @@ const FullRecipe = () => {
     const fetchFullRecipe = async () => {
       try {
         const response = await axios.get(
-          `https://api.spoonacular.com/recipes/${id}/information?apiKey=fab7982aaa8b44e3809eb0f85c74f923&`
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API}`
         );
         setRecipeDetails(response.data);
       } catch (error) {
