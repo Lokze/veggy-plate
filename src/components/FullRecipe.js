@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { RecipesContext } from './recipesContext';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const FullRecipe = () => {
   const { recipes } = useContext(RecipesContext);
@@ -47,7 +48,11 @@ const FullRecipe = () => {
   return (
     
   <div className="Full">
-
+    <Helmet>
+      <title>{recipeDetails.title}</title>
+      <meta name='description' content={'Find all about '+recipeDetails.title}/>
+      <meta name='keywords' content={'Recipes, Vegetarian, Vegetarian Recipes,'+recipeDetails.title}/>
+    </Helmet>
      <div className="recipe-container">
     <div className="recipe-image">
       <img src={recipeDetails.image} alt={recipeDetails.title} />

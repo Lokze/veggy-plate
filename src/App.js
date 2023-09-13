@@ -5,6 +5,8 @@ import Cards from './components/cards';
 import FullRecipe from './components/FullRecipe';
 import { RecipesProvider } from './components/recipesContext';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 
 function App() {
   return (
@@ -13,6 +15,11 @@ function App() {
       <RecipesProvider>
       <Router>
           <Header />
+          <Helmet>
+            <title>Veggy-Plate</title>
+            <meta name='description' content='Get recipes for your vegetarian dishes'/>
+            <meta name='keywords' content='Recipes, Vegetarian, Vegetarian Recipes'/>
+          </Helmet>
           <Routes>
           <Route path="/" element={<Recipes/>}/>
           </Routes>
