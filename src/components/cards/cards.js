@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { RecipesContext } from './recipesContext';
+import { RecipesContext } from '../recipesContext';
 import { Link } from 'react-router-dom';
+import './cards.css'
 
 const Cards = () => {
   const { recipes } = useContext(RecipesContext);
@@ -8,7 +9,7 @@ const Cards = () => {
 
   return (
     <div>
-      <ul id='cards' className='card-container'>
+      <ul  className='card-container'>
         {recipes.map((recipe) => (
           <li className='card' key={recipe.id}>
             <p>{recipe.title}</p>
