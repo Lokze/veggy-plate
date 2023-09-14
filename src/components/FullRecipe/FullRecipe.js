@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { RecipesContext } from './recipesContext';
+import { RecipesContext } from '../recipesContext';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+import './FullRecipe.css'
 
 const FullRecipe = () => {
   const { recipes } = useContext(RecipesContext);
@@ -16,7 +18,7 @@ const FullRecipe = () => {
     const fetchFullRecipe = async () => {
       try {
         const response = await axios.get(
-          `https://api.spoonacular.com/recipes/${id}/information?apiKey=fab7982aaa8b44e3809eb0f85c74f923&`
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API}`
         );
         setRecipeDetails(response.data);
       } catch (error) {
@@ -47,7 +49,11 @@ const FullRecipe = () => {
   return (
     
   <div className="Full">
-
+    <Helmet>
+      <title>{recipeDetails.title}</title>
+      <meta name='description' content={'Find all about '+recipeDetails.title}/>
+      <meta name='keywords' content={'Recipes, Vegetarian, Vegetarian Recipes,'+recipeDetails.title}/>
+    </Helmet>
      <div className="recipe-container">
     <div className="recipe-image">
       <img src={recipeDetails.image} alt={recipeDetails.title} />

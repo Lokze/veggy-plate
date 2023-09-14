@@ -1,17 +1,18 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { RecipesContext } from './recipesContext';
+import './recipesContext'
 
 const Recipes = () => {
-  const [query, setQuery] = useState(''); // State to store the search query
+  const [query, setQuery] = useState('');
   const { setRecipes } = useContext(RecipesContext);
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
 
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=fab7982aaa8b44e3809eb0f85c74f923&query=${query}&diet=vegetarian`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API}=${query}&diet=vegetarian`
       );
       setRecipes(response.data.results);
     } catch (error) {
@@ -20,7 +21,7 @@ const Recipes = () => {
   };
 
   return (
-    <div className="recipes-container">
+    <div>
       <form onSubmit={handleSubmit}>
         <h3>Search your vegetarian plate</h3>
         <input
@@ -38,3 +39,6 @@ const Recipes = () => {
 };
 
 export default Recipes;
+
+
+
