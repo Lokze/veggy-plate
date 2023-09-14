@@ -1,8 +1,8 @@
 import './App.css';
-import Header from './components/header';
+import Header from './components/header/header';
 import Recipes from './components/recipes';
-import Cards from './components/cards';
-import FullRecipe from './components/FullRecipe';
+import Cards from './components/cards/cards';
+import FullRecipe from './components/FullRecipe/FullRecipe';
 import { RecipesProvider } from './components/recipesContext';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';

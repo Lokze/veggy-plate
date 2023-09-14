@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { RecipesContext } from './recipesContext';
+import { RecipesContext } from '../recipesContext';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import './FullRecipe.css'
 
 const FullRecipe = () => {
   const { recipes } = useContext(RecipesContext);

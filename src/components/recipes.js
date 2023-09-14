@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { RecipesContext } from './recipesContext';
+import './recipesContext'
 
 const Recipes = () => {
   const [query, setQuery] = useState('');
@@ -20,7 +21,7 @@ const Recipes = () => {
   };
 
   return (
-    <div className="recipes-container">
+    <div>
       <form onSubmit={handleSubmit}>
         <h3>Search your vegetarian plate</h3>
         <input
